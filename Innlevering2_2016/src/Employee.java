@@ -12,6 +12,12 @@ public class Employee extends Kort implements Konstanter{
 		ansatt = new GregorianCalendar();
 	}
 	
+	public Employee(String navn, int pinkode, GregorianCalendar ansatt) {
+		super(navn, pinkode);
+		this.lonn = 200;
+		this.ansatt = ansatt;
+	}
+	
 	@Override
 	public boolean sjekkPin(int pin) {  
 		if (isSperretKort())
