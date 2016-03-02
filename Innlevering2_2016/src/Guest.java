@@ -26,4 +26,12 @@ public class Guest extends Kort {
 
 		return false;
 	}
+
+	@Override
+	protected Object clone() {
+		Guest copy = (Guest) super.clone();
+		copy.expires = (GregorianCalendar) expires.clone();
+		
+		return copy;
+	}
 }

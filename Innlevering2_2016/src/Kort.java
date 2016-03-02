@@ -1,4 +1,4 @@
-public abstract class Kort {
+public abstract class Kort implements Comparable<Kort>, Cloneable{
 	private String fornavn;
 	private String etternavn;
 	private int pinkode;
@@ -75,6 +75,26 @@ public abstract class Kort {
 
 	public String getNavn() {
 		return getFornavn() + " " + getEtternavn();
+	}
+
+	@Override
+	public int compareTo(Kort andreKort) {
+		int result= etternavn.compareTo(andreKort.etternavn);
+		
+		if(result == 0)
+			result = fornavn.compareTo(andreKort.fornavn);
+		
+		return result;
+	}
+
+	@Override
+	protected Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
