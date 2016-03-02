@@ -6,14 +6,14 @@ public class Employee extends Kort implements Konstanter{
 	double lonn;
 	GregorianCalendar ansatt;
 	
-	public Ansatt(String navn, int pinkode) {
+	public Employee(String navn, int pinkode) {
 		super(navn, pinkode);
 		this.lonn = 200;
 		ansatt = new GregorianCalendar();
 	}
 	
 	@Override
-	public void sjekkPin() {  
+	public boolean sjekkPin(int pin) {  
 		if (isSperretKort())
 			return false;
 		
@@ -23,7 +23,7 @@ public class Employee extends Kort implements Konstanter{
 		
 		if (hour >=7 && hour <=17 && day !=1 && day !=7)
 			return true;
-		if (kode == getPinkode())
+		if (pin == getPinkode())
 			return true;
 		return false;	
 		
@@ -40,11 +40,10 @@ public class Employee extends Kort implements Konstanter{
 	}
 
 	@Override
-	public void setFulltNavn() {
+	public void setFulltNavn(String navn) {
 		String[] names = navn.split(" ", 2);
 		setFornavn(names[0]);
 		setEtternavn(names[1]);
-		
 	}
 
 	@Override
