@@ -1,5 +1,4 @@
 public abstract class Kort {
-	// Set Default values for variables
 	private String fornavn;
 	private String etternavn;
 	private int pinkode;
